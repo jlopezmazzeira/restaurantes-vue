@@ -7,7 +7,11 @@ import RestaurantesList from './RestaurantesList.vue'
 import RestauranteTop from './RestauranteTop.vue'
 
 Vue.use(VueRouter);
-
+/*
+	{path: '/crear-restaurante', name: 'crear-restaurante', component: RestauranteAdd},
+	{path: '/restaurante/:id', name: 'restaurante', component: Restaurante},
+	{path: '/editar-restaurante/:id', name: 'editar-restaurante', component: RestauranteEdit}
+*/
 const routes = [
   {path: '/', component: Home},
   {path: '/home', component: Home},

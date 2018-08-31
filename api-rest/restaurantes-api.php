@@ -4,8 +4,10 @@ require_once 'vendor/autoload.php';
 
 $app = new \Slim\Slim();
 
-$db = new mysqli("localhost", "root", "", "webapp");
-
+$db = new mysqli("localhost", "ubuntu", "Ubuntu_1", "webapp");
+if (mysqli_connect_errno()) {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
 $app->get("/restaurantes", function() use($db, $app) {
 	// sleep(3);
 	$query = $db->query("SELECT * FROM restaurantes ORDER BY id DESC;");
@@ -126,7 +128,7 @@ $app->get("/delete-restaurante/:id", function($id) use($db, $app) {
 
 
 $app->post("/upload-file", function() use($db, $app) {
-	
+
 	$result = array("status" => "error", "message" => "The file could not be uploaded");
 
 	if (isset($_FILES["uploads"])) {
@@ -135,7 +137,7 @@ $app->post("/upload-file", function() use($db, $app) {
 		$upload = $piramideUploader->upload("image", "uploads", "uploads", array("image/jpeg", "image/png", "image/gif"));
 		$file = $piramideUploader->getInfoFile();
 		$file_name = $file["complete_name"];
-		
+
 		if (isset($upload) && $upload["uploaded"] == false) {
 			$result = array("status" => "error",
 				"message" => $upload["error"]);
@@ -145,9 +147,8 @@ $app->post("/upload-file", function() use($db, $app) {
 				"filename"=>$file_name);
 		}
 	}
-	
+
 	echo json_encode($result);
 });
 
 $app->run();
-
