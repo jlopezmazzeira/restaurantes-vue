@@ -7,7 +7,7 @@
 					<router-link :to="{name: 'restaurante', params: {id: restaurante.id}}">Ver</router-link>
 					<router-link :to="{name: 'editar-restaurante', params: {id: restaurante.id}}">Editar</router-link>
 					<span v-if="showBorrar != restaurante.id">
-						<a @click="borrarRestaurante(restaurante.id)">Eliminar</a>
+						<a @click="borrarRestaurante(restaurante.id)" style="cursor:pointer;">Eliminar</a>
 					</span>
 					<span v-else>
 						<p>¿Estas seguro de eliminar el restaurante?</p>

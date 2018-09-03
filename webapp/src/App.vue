@@ -4,10 +4,12 @@
     <h2>{{ msg }}</h2>
     <ul>
       <li><router-link to="/home" >Home</router-link></li>
+      <li><router-link :to="{name: 'crear-restaurante'}" >Crear Restaurante</router-link></li>
       <li><router-link to="/restaurantes" >Restaurantes</router-link></li>
       <li><router-link :to="{name: 'restaurante-destacado', params: {id: 16}}" >Restaurante Destacado</router-link></li>
       <li><router-link to="/contacto" >Contacto</router-link></li>
     </ul>
+    <hr />
     <router-view></router-view>
     <!--<home></home>
     <contacto></contacto>-->

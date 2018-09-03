@@ -5,19 +5,21 @@ import Home from './Home.vue'
 import Contacto from './Contacto.vue'
 import RestaurantesList from './RestaurantesList.vue'
 import RestauranteTop from './RestauranteTop.vue'
+import Restaurante from './Restaurante.vue'
+import RestauranteAdd from './RestauranteAdd.vue'
+import RestauranteEdit from './RestauranteEdit.vue'
 
 Vue.use(VueRouter);
-/*
-	{path: '/crear-restaurante', name: 'crear-restaurante', component: RestauranteAdd},
-	{path: '/restaurante/:id', name: 'restaurante', component: Restaurante},
-	{path: '/editar-restaurante/:id', name: 'editar-restaurante', component: RestauranteEdit}
-*/
+
 const routes = [
   {path: '/', component: Home},
   {path: '/home', component: Home},
   {path: '/contacto', component: Contacto},
   {path: '/restaurante-destacado/:id', name: 'restaurante-destacado' ,component: RestauranteTop},
-  {path: '/restaurantes', component: RestaurantesList}
+  {path: '/restaurantes', component: RestaurantesList},
+  {path: '/restaurante/:id', name: 'restaurante', component: Restaurante},
+  {path: '/crear-restaurante', name: 'crear-restaurante', component: RestauranteAdd},
+  {path: '/editar-restaurante/:id', name: 'editar-restaurante', component: RestauranteEdit}
 ];
 
 const router = new VueRouter({
